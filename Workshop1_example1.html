@@ -19,6 +19,101 @@
 			alert(firstname+" "+lastname);
 			console.log(lastname+", "+firstname);
 
+			var arr = [];
+			for (var i=0; i<15; i++) {
+			arr.push( Math.random() * 100);
+			console.log(arr[i]);
+			document.write("<strong>" + arr[i] + "</strong>" + "<br>"); 
+
+			function areYouOldEnough(age) {
+				if (age < 18){
+					return false;
+				}else
+					return true;
+				} 
+			}
+
+			console.log(areYouOldEnough(18));
+			document.write( areYouOldEnough(19) );
+			alert(areYouOldEnough(5) + " Sorry, you are under 18");
+			alert(areYouOldEnough(25) + " Welcome to the page!");
+
+			var person = {
+				firstName:"John",
+				lastName:"Doe",
+				age:50,
+				eyeColor:"blue",
+				address: "Ansakatu 8, Helsinki",
+				phone: "040-xxxxxxx",
+				printInfo: function() {
+					return this.firstName + "; " + this.lastName + "; " + this.age + "; " + this.eyeColor + "; " + this.address + "; " + this.phone;
+				}
+			}
+			console.log(person.printInfo());
+
+			var people = [
+				{
+					firstName:"John",
+					lastName:"Doe",
+					age:50,
+					eyeColor:"blue",
+					address: "Ansakatu 8, Helsinki",
+					phone: "040-xxxxxxx",
+					printInfo: function() {
+						return this.firstName + " " + this.lastName + "<br/>";
+					}
+				},
+				{
+					firstName:"Max",
+					lastName:"Maxim",
+					age:40,
+					eyeColor:"green",
+					address: "Ansakatu 8, Rovaniemi",
+					phone: "040-xxxxxx1",
+					printInfo: function() {
+						return this.firstName + " " + this.lastName + "<br/>";
+					}
+				}
+			]
+			var text = "<hr/>";
+			for(i=0; i<people.length; i++) {
+            	text += people[i].printInfo();
+        	}
+        	document.write(text);
+
+			document.write("<h1>1</h1>")
+			function dogAge(age) {
+				return age*7;
+			}
+			document.write ("<p>If man is 7, in dogs age he is " + dogAge(7) + "</p>");
+
+
+		 	document.write("<h1>2</h1>")
+			var i = 5; 
+			var j = 10;
+			var k = 25; 
+			var l = "Joe";
+
+			if (i < j) {
+				console.log("i");
+			}
+			else if (j > k) {
+				console.log("k");
+			}
+			else {
+				console.log("j")
+			};
+
+
+			var arr = [3, 5, 7];
+			for (var i = 0; i <3; i++){
+			console.log(arr[i]);
+			}
+
+
+
+
+
 		</script>
 
 	</head>
