@@ -6,6 +6,94 @@
         <link rel="stylesheet" href="css/styles.css">
         <script>
             <!-- JavaScript goes here -->
+
+            var counter = 0;
+
+            function showTable(){
+                var html = `
+                <table id="example" class="display">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Position</th>
+                            <th>Salary</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Ashton Cox</td>
+                            <td>Junior Technical Author</td>
+                            <td>$86,000</td>
+                        </tr>
+                        <tr>
+                            <td>Cedric Kelly</td>
+                            <td>Senior Javascript Developer</td>
+                            <td>$433,060</td>
+                        </tr>
+                        <tr>
+                            <td>Airi Satou</td>
+                            <td>Accountant</td>
+                            <td>$162,700</td>
+                        </tr>              
+                    </tbody>
+                </table>
+                `;
+                document.write(html);
+            }
+
+            function showTable1(){
+                document.getElementById('table-here').innerHTML = "<table border='1'><thead><tr><th>Name</th><th>Position</th><th>Salary</th></tr></thead><tbody></table>";
+                
+            }
+
+            // button 3
+            function geoLocation() {
+                var options = {
+                    enableHighAccuracy: true,
+                    timeout: 5000,
+                    maximumAge: 0
+                };
+                navigator.geolocation.getCurrentPosition(success, error, [options]);
+                function success(pos) {
+                    var text = 'Your current position is: latitude: ' + pos.coords.latitude + ' longitude: ' + pos.coords.longitude;
+                    console.log(text);
+                    document.write(text);
+
+                }
+                function error() {
+                    console.warn(`ERROR(${err.code}): ${err.message}`);
+                }
+            }
+                ///
+            function attention(){
+                var textbox = document.getElementById('textdata');
+                textbox.value = "Please fill in the form with proper data.";
+                textbox.style = "background:green";
+            }
+                ///
+            function count(){
+                counter++;
+                document.getElementById('counter').innerHTML = counter;
+            }
+
+             ///
+             function validate(){
+                var textbox = document.getElementById('textdata');
+                if (textbox.value == ''){
+                    alert("Field is empty");
+                    return false;
+                }
+
+            ///
+
+            function showXY(event){
+                var x = event.clientX;
+                var y = event.clientY;
+                var coords = "X coords: " + x + ", Y coords: " + y;
+                consol.log ("coords");
+                document.getElementById("coordinates").innerHTML = coords;
+            }
+             }
         </script>
     </head>
     <body class="ws3">
@@ -16,9 +104,10 @@
         <h2>Exercise 1</h2>
         <p>Below you will see three buttons. Edit the source code and add an onClick-events to these buttons.</p>
         <p>
-          <button>Click me</button>
-          <button>Show table</button>
-          <button>Geolocation</button>
+          <button onclick = "alert('You clicked me!' +  new Date())">Click me</button>
+          <button onclick = "showTable()">Show table</button>
+          <button onclick = "showTable1()">Show table1</button>
+          <button onclick = "geoLocation()">Geolocation</button>
         </p>
 
         <ol>
@@ -26,6 +115,7 @@
           <li> When you see the button working, add the current date after the text by using the Date() -function.</li>
           <li>The second button should call a function called showTable()". ShowTable function should output a simple HTML-table (below) to the page. Use document.write to print data. Feel free to modify the data on the table.</li>
         </ol>
+        <div id="table-here"></div>
         <table id="example" class="display">
             <thead>
                 <tr>
@@ -66,7 +156,7 @@
             <li>The last button should check Geolocation of the user, and output it to the console and to the page. Note: Some browsers might not allow you to do this. Try different browsers if you get errors.</li>
         </ol>
         <hr/>
-        <h2>Exercise 2</h2>
+        <h2 onMouseOver="console.log('Stepped over my a mouse!');" onmouseleave="alert('Bye bye mouse')">Exercise 2</h2>
         <ul>
             <li>Add an&nbsp;onMouseOver event on the&nbsp;Heading "Exercise 2" of this page.&nbsp;It should&nbsp;fire when the users mouse is moved 
         over&nbsp;it. Output "Stepped over my a mouse!" on the console.</li>
@@ -80,14 +170,15 @@
           <li>Try to use onkeydown -event on the textarea. It should calculate the number of keypresses and output them on the screen. Could you think other smart ways to use it?</li>
           <li>When the form button is clicked, check if the textarea is empty. Notify the user with appropriate message. HINT: You can access the Textarea using the following command:   <i>document.getElementById("textdata").value</i>. We will study the forms deeper in Workshops 4 and 5.</li>
         </ul>
-        <form>
-            <textarea id="textdata"></textarea><br>
+        <form onsubmit = "return validate(this);">
+            <textarea onkeydown = "count()"; onfocus= "attention()"; id="textdata"></textarea><br>
             <span id="charcount"></span>
+            <h3 id="counter">count</h3>
             <button>Send me</button>
         </form>
         <hr/>
         <h2>Exercise 4</h2>
-        <div id="coordinates"></div>
+        <div onmousemove="showXY(event);" id="coordinates"></div>
         <p>Add onMouseMove -event to the DIV-element above. When you move mouse over the DIV (rectangle) the program should output the coordinates of your pointer. Try first outputting to the console using console.log.</p>
         <p> When the program is working, you can try outputting the text on the H2 element with an id "coords" the box</p> 
         <p>HINT: You need to use document.getElementById("coordinates").innerHTML to achieve this.</p>
