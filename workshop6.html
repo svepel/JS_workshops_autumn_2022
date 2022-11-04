@@ -5,7 +5,7 @@
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="css/styles.css">
 	</head>
-	<body class="ws6" onload="">
+	<body class="ws6" onload="populateData(); populateData2()">
 		<h1>Workshop 6: Using Localstorage</h1>
 		<hr />
 		<h2>Exercise 1: Saving the entered data</h2>
@@ -60,5 +60,96 @@
 			example, would remember the data that you have entered between browser refresh and even 
 			restarts.</p>
 		</div>
+
+		<script>
+			function getData(){
+				localStorage.setItem("destination", document.getElementById("destination").value);
+                localStorage.setItem("arrival", document.getElementById("arrival").value);
+                localStorage.setItem("internet", document.getElementById("CheckboxGroup1_0").checked);
+                localStorage.setItem("airconditioning", document.getElementById("CheckboxGroup1_1").checked);
+                localStorage.setItem("minibar", document.getElementById("CheckboxGroup1_2").checked);
+                localStorage.setItem("carrent", document.getElementById("CheckboxGroup1_3").checked);
+                localStorage.setItem("sauna", document.getElementById("CheckboxGroup1_4").checked);
+			}
+
+			 <!-- Assignment 2 solution -->
+			 function populateData() {
+                document.getElementById("destination").value = localStorage.getItem("destination");
+                document.getElementById("arrival").value = localStorage.getItem("arrival");
+                document.getElementById("CheckboxGroup1_0").checked = (JSON.parse(localStorage.getItem("internet")) == true);
+                document.getElementById("CheckboxGroup1_1").checked = (JSON.parse(localStorage.getItem("airconditioning")) == true);
+                document.getElementById("CheckboxGroup1_2").checked = (JSON.parse(localStorage.getItem("minibar")) == true);
+                document.getElementById("CheckboxGroup1_3").checked = (JSON.parse(localStorage.getItem("carrent")) == true);
+                document.getElementById("CheckboxGroup1_4").checked = (JSON.parse(localStorage.getItem("sauna")) == true);
+                var sessiondata = "<p>Destination: " + localStorage.getItem("destination") + "</p><p>Arrival: " + localStorage.getItem("arrival") + "</p><p>Services:</p><ul>";
+                if(JSON.parse(localStorage.getItem("internet")) == true) {
+                    sessiondata += "<li>Internet</li>";
+                }
+                if(JSON.parse(localStorage.getItem("airconditioning")) == true) {
+                    sessiondata += "<li>Air conditioning</li>";
+                }
+                if(JSON.parse(localStorage.getItem("minibar")) == true) {
+                    sessiondata += "<li>Mini bar</li>";
+                }
+                if(JSON.parse(localStorage.getItem("carrent")) == true) {
+                    sessiondata += "<li>Car rental</li>";
+                }
+                if(JSON.parse(localStorage.getItem("sauna")) == true) {
+                    sessiondata += "<li>Sauna</li>";
+                }
+                sessiondata += "</ul>";
+                document.getElementById("sessiondata").innerHTML = sessiondata;
+				/*
+				Or you could use a loop if you wanted to print out all items:
+				 */
+                for (var i = 0; i < localStorage.length; i++){
+                    console.log(localStorage.key(i) + ": " + localStorage.getItem(localStorage.key(i)));
+                }
+
+
+
+				<!-- Assignment 3 solution -->
+				function getData2() {
+                sessionStorage.setItem("destination", document.getElementById("destination2").value);
+                sessionStorage.setItem("arrival", document.getElementById("arrival2").value);
+                sessionStorage.setItem("internet", document.getElementById("CheckboxGroup1_02").checked);
+                sessionStorage.setItem("airconditioning", document.getElementById("CheckboxGroup1_12").checked);
+                sessionStorage.setItem("minibar", document.getElementById("CheckboxGroup1_22").checked);
+                sessionStorage.setItem("carrent", document.getElementById("CheckboxGroup1_32").checked);
+                sessionStorage.setItem("sauna", document.getElementById("CheckboxGroup1_42").checked);
+            }
+            <!-- Assignment 3 solution -->
+            function populateData2() {
+                document.getElementById("destination2").value = sessionStorage.getItem("destination");
+                document.getElementById("arrival2").value = sessionStorage.getItem("arrival");
+                <!-- JSON.parse is used here because sessionStorage values are strings, not booleans -> the check == true would be false -->
+                document.getElementById("CheckboxGroup1_02").checked = (JSON.parse(sessionStorage.getItem("internet")) == true);
+                document.getElementById("CheckboxGroup1_12").checked = (JSON.parse(sessionStorage.getItem("airconditioning")) == true);
+                document.getElementById("CheckboxGroup1_22").checked = (JSON.parse(sessionStorage.getItem("minibar")) == true);
+                document.getElementById("CheckboxGroup1_32").checked = (JSON.parse(sessionStorage.getItem("carrent")) == true);
+                document.getElementById("CheckboxGroup1_42").checked = (JSON.parse(sessionStorage.getItem("sauna")) == true);
+                var sessiondata = "<p>Destination: " + sessionStorage.getItem("destination") + "</p><p>Arrival: " + sessionStorage.getItem("arrival") + "</p><p>Services:</p><ul>";
+                if(JSON.parse(sessionStorage.getItem("internet")) == true) {
+                    sessiondata += "<li>Internet</li>";
+                }
+                if(JSON.parse(sessionStorage.getItem("airconditioning")) == true) {
+                    sessiondata += "<li>Air conditioning</li>";
+                }
+                if(JSON.parse(sessionStorage.getItem("minibar")) == true) {
+                    sessiondata += "<li>Mini bar</li>";
+                }
+                if(JSON.parse(sessionStorage.getItem("carrent")) == true) {
+                    sessiondata += "<li>Car rental</li>";
+                }
+                if(JSON.parse(sessionStorage.getItem("sauna")) == true) {
+                    sessiondata += "<li>Sauna</li>";
+                }
+                sessiondata += "</ul>";
+                document.getElementById("sessiondata2").innerHTML = sessiondata;
+            }
+
+            }
+
+		</script>
 	</body>
 </html>

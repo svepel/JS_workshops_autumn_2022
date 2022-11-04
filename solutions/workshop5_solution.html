@@ -41,7 +41,7 @@
         <p data-line="20">a)  the Costs-field should display the total costs of the subscription</p>
         <p data-line="22">b) If the user chooses to pay   for more than 2 years, he will get a 20% discount. Notify the user when   he is eligible to get the discount, by showing a text next to form.</p>
         <p data-line="24">c) Should he pay for 5 years or   more, he will get the normal 20% discount, but will also be given an   extra 5€ discount with a special greetings text on screen.</p>
-        <form action="#" method="post" id="theForm"onsubmit="return calculateMembership1()" >
+        <form action="#" method="post" id="theForm"onsubmit="return calculateMembership()" >
             <fieldset>
                 <legend>Create Your Membership</legend>
                 <p>Complete this form to calculate your membership. There's a 20% discount if you enroll for more than two year!</p>
@@ -115,32 +115,32 @@
           </li>
         </ul>
 		<form name="extra" action="#" onsubmit="validateExtra()" method="post">
-		<fieldset>
-			<legend>Contact information:</legend>
-			<p>First name: 
-				<input type="text" name="fname" id="fname"> </p>
-			<p>Last name:
-				<input type="text" name="lname" id="lname"> </p>
-				<div>
-                    <label for="cont">How to contact:</label> 
-                    <select onchange="validateExtra()" name="cont" id="cont" size="3" required>
-                        <option value="phone">Phone</option>
-                        <option value="e-mail">e-mail</option>
-                        <option value="sms">sms</option>
-                    </select>
-                </div>
-			
-		</fieldset>
-		<fieldset id="extraField">
-			<legend>Additional information</legend>
-			<p id="extra_text">email:</p>
-				<p><input type="text" name="email_2" id="email_2"> </p>
-			
-		</fieldset>
-				
-		<p>
-		<input type="submit" name="Submit" value="Submit">
-		</form>
+            <fieldset>
+                <legend>Contact information:</legend>
+                <p>First name: 
+                    <input type="text" name="fname" id="fname"> </p>
+                <p>Last name:
+                    <input type="text" name="lname" id="lname"> </p>
+                    <div>
+                        <label for="cont">How to contact:</label> 
+                        <select onchange="validateExtra()" name="cont" id="cont" size="3" required>
+                            <option value="phone">Phone</option>
+                            <option value="e-mail">e-mail</option>
+                            <option value="sms">sms</option>
+                        </select>
+                    </div>
+                
+            </fieldset>
+            <fieldset id="extraField">
+                <legend>Additional information</legend>
+                <p id="extra_text">email:</p>
+                    <p><input type="text" name="email_2" id="email_2"> </p>
+                
+            </fieldset>
+                    
+            <p>
+            <input type="submit" name="Submit" value="Submit">
+            </form>
         <script src="js/shopping.js"></script> </p>
 		
         <script>

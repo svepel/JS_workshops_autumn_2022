@@ -11,34 +11,39 @@
 
             function showTable(){
                 var html = `
-                <table id="example" class="display">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Position</th>
-                            <th>Salary</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Ashton Cox</td>
-                            <td>Junior Technical Author</td>
-                            <td>$86,000</td>
-                        </tr>
-                        <tr>
-                            <td>Cedric Kelly</td>
-                            <td>Senior Javascript Developer</td>
-                            <td>$433,060</td>
-                        </tr>
-                        <tr>
-                            <td>Airi Satou</td>
-                            <td>Accountant</td>
-                            <td>$162,700</td>
-                        </tr>              
-                    </tbody>
+                <table id="example" class="display" cellspacing="0" width="100%">
+                   <thead>
+                      <tr>
+                         <th>Name</th>
+                         <th>Position</th>
+                         <th>Salary</th>
+                      </tr>
+                   </thead>
+                   <tbody>
+                      <tr>
+                         <td>Tiger Nixon</td>
+                         <td>System Architect</td>
+                         <td>$320,800</td>
+                      </tr>
+                      <tr>
+                         <td>Garrett Winters</td>
+                         <td>Accountant</td>
+                         <td>$170,750</td>
+                      </tr>
+                      <tr>
+                         <td>Ashton Cox</td>
+                         <td>Junior Technical Author</td>
+                         <td>$86,000</td>
+                      </tr>
+                   </tbody>
                 </table>
                 `;
-                document.write(html);
+
+                ///open table in the new window
+                ///document.write(html);
+
+                ///open table on the same page
+                document.getElementById('my-table').innerHTML = html;
             }
 
             function showTable1(){
@@ -90,7 +95,7 @@
                 var x = event.clientX;
                 var y = event.clientY;
                 var coords = "X coords: " + x + ", Y coords: " + y;
-                consol.log ("coords");
+                consol.log (coords);
                 document.getElementById("coordinates").innerHTML = coords;
             }
              }
@@ -115,8 +120,9 @@
           <li> When you see the button working, add the current date after the text by using the Date() -function.</li>
           <li>The second button should call a function called showTable()". ShowTable function should output a simple HTML-table (below) to the page. Use document.write to print data. Feel free to modify the data on the table.</li>
         </ol>
-        <div id="table-here"></div>
-        <table id="example" class="display">
+        <p id="my-table"></p>
+        <p id="table-here"></p>
+        <table id="example" class="display" cellspacing="0" width="100%">
             <thead>
                 <tr>
                     <th>Name</th>
@@ -178,7 +184,7 @@
         </form>
         <hr/>
         <h2>Exercise 4</h2>
-        <div onmousemove="showXY(event);" id="coordinates"></div>
+        <div onmousemove="showXY(event)" id="coordinates"></div>
         <p>Add onMouseMove -event to the DIV-element above. When you move mouse over the DIV (rectangle) the program should output the coordinates of your pointer. Try first outputting to the console using console.log.</p>
         <p> When the program is working, you can try outputting the text on the H2 element with an id "coords" the box</p> 
         <p>HINT: You need to use document.getElementById("coordinates").innerHTML to achieve this.</p>

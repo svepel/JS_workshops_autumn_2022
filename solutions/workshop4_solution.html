@@ -69,7 +69,7 @@ color and the background color</li>
 		<br>
 		<br>
 		<img onmouseover="showBorder()" onmouseout="hideBorder()" style="left: 0px; opacity: 1;" src="
-http://cdn.bmwblog.com/wp-content/uploads/2015/11/BMW-2-Series-Gran-Coupe-Rendering.jpg" width="400" id="carimage" alt="" />
+        http://o.aolcdn.com/commerce/autodata/images/USC70AUC017A021001.jpg" width="400" id="carimage" alt="" />
         <hr/>
 		<h2>Exercise 4: Moving things around</h2>
 		<ul>
@@ -168,8 +168,11 @@ http://cdn.bmwblog.com/wp-content/uploads/2015/11/BMW-2-Series-Gran-Coupe-Render
             }
             function thirdButton(){
                 var ptags = document.getElementsByTagName('p');
+                var lorem = document.getElementById('lorem');
                 var emtags = document.getElementsByTagName('em');
-                ptags[3].innerHTML += emtags[1].innerHTML;
+                ptags[3].innerHTML += '<strong>' +lorem.innerHTML + '</strong>';
+                ptags[3].innerHTML += '<i>'+emtags[1].innerHTML+'</i>';
+                ptags[3].innerHTML += "img src='https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRnolDrUSX-NZBCKTjPLoliz1NLTFzQ2zZMM_Pz6x91A8mwz34r'"
             }
             <!-- Assignment 2 -->
             function hideMe(){
