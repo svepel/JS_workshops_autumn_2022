@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Trains to Lapland</title>
+
+        <!--Digitraffic Portal is used for this application. It offers an API which allow developers to fetch data about train in Finland. Documentation can be found here "https://www.digitraffic.fi/rautatieliikenne/#p%C3%A4iv%C3%A4n-junien-tiedot">
+        Trains to Lapland APP will display the train information based on the users wishes.-->
+        
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="stylesheet" href="project2.css">
+
+        <style>
+            .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+            }
+    
+            @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+            }
+        </style>
+    
+    </head>
+
+    <body class="d-flex h-100 text-center text-white bg-dark">
+
+        <div class="cover-container d-flex w-100 h-100 p-2 mx-auto flex-column">
+
+            <main class="px-3">
+
+                <div id="box" class= "bg-dark p-5">
+                    <h1>Trains in LAPLAND:</h1>
+                    <h1>Arrivals and departures</h1>
+
+                
+
+                    <p class = "lead">Select a train station from the list:</p>
+                    <div class="input-group">
+                        
+                        <select name="mySelect" id="city" onchange="" class="form-select form-select-lg mb-3" aria-label="select with button addon">
+                            <option value="none" selected>Choose...</option>
+                            <option value="ROI">Rovaniemi (ROI)</option>
+                            <option value="KLI">Kolari (KLI)</option>
+                            <option value="KEM">Kemi (KEM)</option>
+                            <option value="KJÄ">Kemijärvi (KJÄ)</option>
+                        </select>
+                        <button onclick="stationSelect()" class="btn btn-lg btn-dark mb-3 fw-bold border-white text-white-10" type="button"> Get data >></button>
+                    </div>
+
+
+                    <hr>
+
+                    <p class = "lead">Or type in a station code:</p>  
+                    
+                    
+                    <div class="input-group mb-0">
+                        <input id="citysearch" type="text" class="form-control form-control-lg mb-3" placeholder="Station code, eg. ROI" aria-label="Recipient's username" aria-describedby="button-addon2">
+                        <button id="search" onclick="stationSearch()" class="btn btn-lg btn-dark mb-3 fw-bold border-white text-white-10" type="button" id="button-addon2">Get data >></button>
+                    </div>
+                    <p><small>STATION CODES: Rovaniemi - ROI; Kolari - KLI; Kemi - KEM; Kemijärvi - KJÄ</small> </p>
+
+                    
+                    <div class= "mt-5" id="stationDataArrival"></div>
+
+                    <div class= "mt-5" id="stationDataDeparture"></div>
+
+                    
+                    
+                    <script type="text/javascript" src="project2.js"></script>
+                    
+
+                </div>
+
+        
+                
+                    
+                
+            </main>
+
+
+            
+        </div
+
+        
+    </body>
+
+</html>

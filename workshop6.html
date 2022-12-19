@@ -52,6 +52,28 @@
 			should be used. Copy the form above here and implement sessionstorage for it. See what 
 			happens, when you close the browser. You can utilize developer tools to study the data (F12, 
 			select Application tab, then LocalStorage on the left).</p>
+
+            <div>
+                <label for="destination">Destination:</label>
+                <input type="text" name="textfield" id="destination2">
+            </div>
+            <div>
+                <label for="arrival">Arrival Date:</label>
+                <input type="text" name="textfield" id="arrival2">
+            </div>
+            <div id="services2" class="border">
+                <p>Services:</p>
+                <div><label><input type="checkbox" name="CheckboxGroup1" value="Internet" id="CheckboxGroup1_02">Internet</label></div>
+                <div><label><input type="checkbox" name="CheckboxGroup1" value="AC" id="CheckboxGroup1_12">Air Conditioning</label></div>
+                <div><label><input type="checkbox" name="CheckboxGroup1" value="minibar" id="CheckboxGroup1_22">Minibar</label></div>
+                <div><label><input type="checkbox" name="CheckboxGroup1" value="car" id="CheckboxGroup1_32">Car rent</label></div>
+                <div><label><input type="checkbox" name="CheckboxGroup1" value="sauna" id="CheckboxGroup1_42">Sauna</label></div>
+            </div>	
+            <div class="clear">
+                <p>
+                  <input type="button" name="button" id="button2" value="Reserve" onclick="getData2()">
+                </p>
+            </div>
 		</div>
 		<hr/>
 		<div>
@@ -81,23 +103,23 @@
                 document.getElementById("CheckboxGroup1_2").checked = (JSON.parse(localStorage.getItem("minibar")) == true);
                 document.getElementById("CheckboxGroup1_3").checked = (JSON.parse(localStorage.getItem("carrent")) == true);
                 document.getElementById("CheckboxGroup1_4").checked = (JSON.parse(localStorage.getItem("sauna")) == true);
-                var sessiondata = "<p>Destination: " + localStorage.getItem("destination") + "</p><p>Arrival: " + localStorage.getItem("arrival") + "</p><p>Services:</p><ul>";
+                var sessiondata = '<p>Destination: ' + localStorage.getItem("destination") + '</p><p>Arrival: ' + localStorage.getItem("arrival") + '</p><p>Services:</p><ul>';
                 if(JSON.parse(localStorage.getItem("internet")) == true) {
-                    sessiondata += "<li>Internet</li>";
+                    sessiondata += '<li>Internet</li>';
                 }
                 if(JSON.parse(localStorage.getItem("airconditioning")) == true) {
-                    sessiondata += "<li>Air conditioning</li>";
+                    sessiondata += '<li>Air conditioning</li>';
                 }
                 if(JSON.parse(localStorage.getItem("minibar")) == true) {
-                    sessiondata += "<li>Mini bar</li>";
+                    sessiondata += '<li>Mini bar</li>';
                 }
                 if(JSON.parse(localStorage.getItem("carrent")) == true) {
-                    sessiondata += "<li>Car rental</li>";
+                    sessiondata += '<li>Car rental</li>';
                 }
                 if(JSON.parse(localStorage.getItem("sauna")) == true) {
-                    sessiondata += "<li>Sauna</li>";
+                    sessiondata += '<li>Sauna</li>';
                 }
-                sessiondata += "</ul>";
+                sessiondata += '</ul>';
                 document.getElementById("sessiondata").innerHTML = sessiondata;
 				/*
 				Or you could use a loop if you wanted to print out all items:
@@ -128,23 +150,23 @@
                 document.getElementById("CheckboxGroup1_22").checked = (JSON.parse(sessionStorage.getItem("minibar")) == true);
                 document.getElementById("CheckboxGroup1_32").checked = (JSON.parse(sessionStorage.getItem("carrent")) == true);
                 document.getElementById("CheckboxGroup1_42").checked = (JSON.parse(sessionStorage.getItem("sauna")) == true);
-                var sessiondata = "<p>Destination: " + sessionStorage.getItem("destination") + "</p><p>Arrival: " + sessionStorage.getItem("arrival") + "</p><p>Services:</p><ul>";
+                var sessiondata = '<p>Destination: ' + sessionStorage.getItem("destination") + '</p><p>Arrival: ' + sessionStorage.getItem("arrival") + '</p><p>Services:</p><ul>';
                 if(JSON.parse(sessionStorage.getItem("internet")) == true) {
-                    sessiondata += "<li>Internet</li>";
+                    sessiondata += '<li>Internet</li>';
                 }
                 if(JSON.parse(sessionStorage.getItem("airconditioning")) == true) {
-                    sessiondata += "<li>Air conditioning</li>";
+                    sessiondata += '<li>Air conditioning</li>';
                 }
                 if(JSON.parse(sessionStorage.getItem("minibar")) == true) {
-                    sessiondata += "<li>Mini bar</li>";
+                    sessiondata += '<li>Mini bar</li>';
                 }
                 if(JSON.parse(sessionStorage.getItem("carrent")) == true) {
-                    sessiondata += "<li>Car rental</li>";
+                    sessiondata += '<li>Car rental</li>';
                 }
                 if(JSON.parse(sessionStorage.getItem("sauna")) == true) {
-                    sessiondata += "<li>Sauna</li>";
+                    sessiondata += '<li>Sauna</li>';
                 }
-                sessiondata += "</ul>";
+                sessiondata += '</ul>';
                 document.getElementById("sessiondata2").innerHTML = sessiondata;
             }
 
