@@ -145,7 +145,7 @@ function stationSearch(){
         field.style.borderColor = "red";
         field.select();
         field.focus();
-        alert("Please write the name of item! It should be more than 2 characters");
+        alert("Please write the code of the station!");
 
     }else{
 
